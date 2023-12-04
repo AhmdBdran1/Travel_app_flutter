@@ -24,6 +24,7 @@ class CategoryTripScreen extends StatelessWidget {
       body: ListView.builder(
           itemBuilder: (context, index) {
             return TripItem(
+                id: filterdTrips[index].id,
                 title: filterdTrips[index].title,
                 imageUrl: filterdTrips[index].imageUrl,
                 duration: filterdTrips[index].duration,
