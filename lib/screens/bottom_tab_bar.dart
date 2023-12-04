@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:traveling_app/screens/categories_screen.dart';
 import 'package:traveling_app/screens/favorites_screen.dart';
+import 'package:traveling_app/widgets/app_drawer.dart';
 
 class BottomTabBar extends StatefulWidget {
   const BottomTabBar({super.key});
@@ -34,16 +35,25 @@ class _BottomTabBarState extends State<BottomTabBar> {
       appBar: AppBar(
         title: Text(_screens[_selectedScreenIndex]['Title'] as String),
       ),
+
+
+      drawer: AppDrawer(),
+
       body: (_screens[_selectedScreenIndex]['Screen'] as Widget),
+
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedScreenIndex,
         onTap: _selectScreen,
         backgroundColor: Colors.blue,
+
+
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.dashboard),
             label: 'التصنيفات'
           ),
+
+
 
           BottomNavigationBarItem(
               icon: Icon(Icons.star),

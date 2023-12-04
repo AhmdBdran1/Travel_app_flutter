@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:traveling_app/screens/bottom_tab_bar.dart';
 import 'package:traveling_app/screens/categories_screen.dart';
 import 'package:traveling_app/screens/category_trips_screen.dart';
+import 'package:traveling_app/screens/filters_screen.dart';
 import 'package:traveling_app/screens/tabs_screen.dart';
 import 'package:traveling_app/screens/trip_detail_screen.dart';
 
@@ -22,6 +23,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Travel App',
       theme: ThemeData(
+
+
         primaryColor: Colors.blue,
           bottomNavigationBarTheme: BottomNavigationBarThemeData(
             selectedItemColor: Colors.amber,
@@ -32,9 +35,9 @@ class MyApp extends StatelessWidget {
             unselectedLabelColor: Colors.white,
             labelColor: Colors.amber,
             indicatorColor: Colors.amber,
-
-
           ),
+
+
 
           appBarTheme: AppBarTheme(
             color: Colors.blue,
@@ -76,6 +79,7 @@ class MyApp extends StatelessWidget {
         '/': (ctx) => BottomTabBar(),
         CategoryTripScreen.screenRoute:(ctx) => CategoryTripScreen(),
         TripDetailScreen.screenRoute: (ctx)=>TripDetailScreen(),
+        FiltersScreen.screenRoute: (ctx)=> FiltersScreen(),
       },
 
       builder: (context, child) {

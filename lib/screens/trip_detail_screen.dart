@@ -81,6 +81,7 @@ class TripDetailScreen extends StatelessWidget {
                              ListTile(
                                leading: CircleAvatar(
                                  child: Text('يوم ${index+1}'),
+                                 backgroundColor: Colors.blue,
                                ),
                                title: Text(
                                  selectedTrip.program[index],
@@ -101,6 +102,17 @@ class TripDetailScreen extends StatelessWidget {
              ],
            ),
          ),
+
+      floatingActionButton:  FloatingActionButton(
+
+        backgroundColor: Colors.amber,
+        child: Icon(Icons.delete,
+        color: Colors.black,),
+        onPressed: (){
+          Navigator.of(context).pop(tripId);
+        },
+
+      ),
     );
   }
 }
