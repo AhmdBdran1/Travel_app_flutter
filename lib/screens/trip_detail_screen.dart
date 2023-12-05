@@ -3,7 +3,12 @@ import 'package:traveling_app/app_data.dart';
 
 class TripDetailScreen extends StatelessWidget {
 
+
   static const screenRoute='/trip_detail';
+  final Function manageFavorite;
+  final Function isFavorate;
+  TripDetailScreen(this.manageFavorite, this.isFavorate);
+
   Widget buildSectionTitle(BuildContext context,String titleText){
     return
       Container(
@@ -106,10 +111,11 @@ class TripDetailScreen extends StatelessWidget {
       floatingActionButton:  FloatingActionButton(
 
         backgroundColor: Colors.amber,
-        child: Icon(Icons.delete,
+        child: Icon(
+          isFavorate(tripId)?Icons.star:Icons.star_border,
         color: Colors.black,),
         onPressed: (){
-          Navigator.of(context).pop(tripId);
+          manageFavorite(tripId);
         },
 
       ),

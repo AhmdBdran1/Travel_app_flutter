@@ -3,8 +3,13 @@ import 'package:traveling_app/screens/categories_screen.dart';
 import 'package:traveling_app/screens/favorites_screen.dart';
 import 'package:traveling_app/widgets/app_drawer.dart';
 
+import '../models/trip.dart';
+
 class BottomTabBar extends StatefulWidget {
-  const BottomTabBar({super.key});
+
+
+  final List<Trip> favoriteTrips;
+  BottomTabBar(this.favoriteTrips);
 
   @override
   State<BottomTabBar> createState() => _BottomTabBarState();
@@ -18,16 +23,25 @@ class _BottomTabBarState extends State<BottomTabBar> {
     });
   }
 
-  final List<Map<String, Object>> _screens = [
-    {
-      'Screen': CategoriesScreen(),
-      'Title': 'تصنيفات الرحلات',
-    },
-    {
-      'Screen': FavoritesScreen(),
-      'Title': 'الرحلات ألمفضلة',
-    },
-  ];
+  late List<Map<String, Object>> _screens ;
+
+
+  @override
+  void initState() {
+    _screens = [
+      {
+        'Screen': CategoriesScreen(),
+        'Title': 'تصنيفات الرحلات',
+      },
+      {
+        'Screen': FavoritesScreen(widget.favoriteTrips),
+        'Title': 'الرحلات ألمفضلة',
+      },
+    ];
+    // TODO: implement initState
+    super.initState();
+  }
+
 
   @override
   Widget build(BuildContext context) {
